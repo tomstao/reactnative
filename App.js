@@ -6,7 +6,9 @@ export default function App() {
             <View>
                 <Text>Another text.</Text>
             </View>
-            <Text>Hello! World!</Text>
+            <Text style={
+                styles.textStyles
+            }>Hello! World!</Text>
             <Button onPress={() => {
             }} title={'Hello'}/>
         </View>
@@ -20,4 +22,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
+
+    textStyles: {
+        margin: 16,
+        borderWidth: 1.5,
+        borderColor: 'red',
+        padding: 16,
+    }
 });
