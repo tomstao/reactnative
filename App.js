@@ -9,10 +9,16 @@ export default function App() {
         setEnterGoalText(enteredText);
     }
 
+    function handleInputReset() {
+        setCourseGoal(
+            () => []
+        );
+    }
+
     function addGoalHandler() {
         // console.log(enterGoalText);
         setCourseGoal(
-            currentCourseGoal => [
+            () => [
                 ...courseGoals,
                 enterGoalText,
             ]
@@ -27,22 +33,23 @@ export default function App() {
                     style={styles.textInput}
                     onChangeText={goalInputHandler}
                 />
-                <Button  title={'Add Goals'} onPress={addGoalHandler} />
+                <Button title={'Add Goals'} onPress={addGoalHandler}/>
+                <Button title={'Rest'} onPress={handleInputReset}/>
             </View>
 
             <View style={styles.goalsContainer}>
                 <Text>
                     List of goals...
                 </Text>
+                <View>
+                    {courseGoals.map((goal, index) => (
+                        <Text key={index}>
+                            {goal}
+                        </Text>
+                    ))}
+                </View>
             </View>
 
-            <View>
-                {courseGoals.map((goal, index) => (
-                    <Text key={index}>
-                        {goal}
-                    </Text>
-                ))}
-            </View>
         </View>
     );
 }
